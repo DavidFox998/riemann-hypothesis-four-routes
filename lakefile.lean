@@ -34,6 +34,13 @@ lean_lib RouteDSource where
     `SelfSymmetry.Core
   ]
 
+lean_lib P5Source where
+  srcDir := "upstream/P5"
+  roots := #[
+    `Towers.RH.Chain.C01_Arakelov,
+    `Towers.RH.Formalized.Certificates
+  ]
+
 lean_lib RHP5 where
   roots := #[`RH.P5]
 

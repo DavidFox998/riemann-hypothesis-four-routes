@@ -12,6 +12,7 @@ for route in A B C D; do
 done
 
 grep -q "RiemannArakelovPositivity.RH_from_arakelov_positivity_unconditional" RH/RouteA/Main.lean
+grep -q "TheoremaAureum.Certificates.M5_H1_proved" RH/P5/Interface.lean
 grep -q "RHKimSarnakDescent.Langlands.grh_to_rh_descent" RH/RouteB/Main.lean
 grep -q "RHRouteC.riemannHypothesis_of_growth_and_repulsion" RH/RouteC/Main.lean
 grep -q "SiegelElementary.eta_pos" RH/RouteD/Main.lean

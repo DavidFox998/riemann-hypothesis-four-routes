@@ -7,6 +7,8 @@ declarations rather than a caller-supplied terminal proof.
 
 #check RH.RouteA.arakelov_positivity_X0_143
 #check RH.RouteA.routeA_rh
+#check RH.P5.m5_positive
+#check RH.P5.source_rh_iff_canonical
 #check RH.RouteB.finite_certificate
 #check RH.RouteB.routeB_rh
 #check RH.RouteC.exp_loglog_dominates_sq
