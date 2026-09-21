@@ -1,0 +1,36 @@
+{
+  "title": "Riemann Hypothesis via Spectral Descent — Kim–Sarnak Route",
+  "upload_type": "software",
+  "description": "Lean 4 formalization of the Kim–Sarnak spectral-descent route from the Laplacian gap λ₁ ≥ 975/4096 through Selberg and Bost–Connes ingredients toward the Riemann Hypothesis. This repository is part of David Fox's Opera Numerorum ensemble.",
+  "creators": [
+    {
+      "name": "Fox, David",
+      "affiliation": "Opera Numerorum",
+      "orcid": "0009-0008-1290-6105"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Riemann Hypothesis",
+    "spectral descent",
+    "Kim–Sarnak bound",
+    "λ₁ ≥ 975/4096",
+    "Lean 4",
+    "formal verification",
+    "Opera Numerorum"
+  ],
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/DavidFox998/arakelov-rh-descent",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "lean"
+    }
+  ],
+  "language": "en"
+}

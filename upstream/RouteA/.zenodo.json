@@ -1,0 +1,37 @@
+{
+  "title": "Riemann Hypothesis via Arakelov Positivity — Route A",
+  "upload_type": "software",
+  "description": "Lean 4 formalization of the Route A formalization of Arakelov positivity on X₀(143), including ω² = 48/13 and its role in the Opera Numerorum approach to the Riemann Hypothesis. This repository is part of David Fox's Opera Numerorum ensemble.",
+  "creators": [
+    {
+      "name": "Fox, David",
+      "affiliation": "Opera Numerorum",
+      "orcid": "0009-0008-1290-6105"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Riemann Hypothesis",
+    "Arakelov positivity",
+    "X₀(143)",
+    "ω² = 48/13",
+    "Lean 4",
+    "formal verification",
+    "modular curves",
+    "Opera Numerorum"
+  ],
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/DavidFox998/riemann-arakelov-positivity",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "lean"
+    }
+  ],
+  "language": "en"
+}

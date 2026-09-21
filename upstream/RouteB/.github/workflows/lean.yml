@@ -1,0 +1,28 @@
+name: Lean CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install elan
+      run: curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y --default-toolchain none
+    - name: Add elan to PATH
+      run: echo "$HOME/.elan/bin" >> $GITHUB_PATH
+    - name: Clean old lake cache (fix Closure cache bug)
+      run: |
+        rm -rf .lake
+        rm -f lake-manifest.json
+    - name: Update dependencies
+      run: lake update
+    - name: Fetch Mathlib cache
+      run: lake exe cache get || true
+    - name: Build ONLY Route B main
+      run: lake build RHKimSarnakDescent
+      timeout-minutes: 60

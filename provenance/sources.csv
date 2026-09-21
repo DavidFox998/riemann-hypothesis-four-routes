@@ -1,0 +1,7 @@
+package,repository,revision
+Core,arakelov-positivity-rh-core,da3b943c662f37c62f8bbaf6ad38783a84ed9b54
+P5,rh-p5-bridge-14,610803bdf764bb62d90f122428bd63e00589288a
+RouteA,riemann-arakelov-positivity,b62e1e138cb4dcdb45ffee437f2cd6a37ce34006
+RouteB,arakelov-rh-descent,fb50a23fffef99d2849d865662336e376b02b7d7
+RouteC,rh-growth-contradiction,82cf0249869035f7339a1c75eae2e6da0399fc44
+RouteD,brothers-desert-proof,640607b4c4caf107042558a9a2ac21351408fc50
