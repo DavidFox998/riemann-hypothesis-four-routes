@@ -48,6 +48,7 @@ provenance.
 
 ## Repository visibility
 
-The standalone route repositories should become private only after source
-parity has been reviewed. Their Git histories are retained; this repository
-becomes the discoverable publication source.
+The four standalone route repositories are private after snapshot parity and
+active-root verification. Their Git histories are retained. This unified
+repository is currently private staging and is the publication source to make
+public when the release ledger is complete.
