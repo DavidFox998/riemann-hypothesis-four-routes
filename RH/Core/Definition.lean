@@ -19,4 +19,15 @@ def IsNontrivialZero (s : ℂ) : Prop :=
 def RiemannHypothesis : Prop :=
   ∀ s : ℂ, IsNontrivialZero s → s.re = 1 / 2
 
+theorem fromMathlib (h : _root_.RiemannHypothesis) : RiemannHypothesis := by
+  intro s hs
+  exact h s hs.1 hs.2.2 hs.2.1
+
+theorem toMathlib (h : RiemannHypothesis) : _root_.RiemannHypothesis := by
+  intro s hs htrivial hone
+  exact h s ⟨hs, hone, htrivial⟩
+
+theorem rh_iff_mathlib : RiemannHypothesis ↔ _root_.RiemannHypothesis :=
+  ⟨toMathlib, fromMathlib⟩
+
 end RH

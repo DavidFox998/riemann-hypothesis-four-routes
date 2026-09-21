@@ -1,15 +1,17 @@
 import RH.P5
+import RiemannArakelovPositivity
 
 namespace RH.RouteA
 
-structure PublicationChain where
-  arakelovPositivity : RH.PublicationStep
-  zeroBridge : RH.PublicationStep
-  terminal : arakelovPositivity.statement → zeroBridge.statement → RH.RiemannHypothesis
+/-- The concrete source theorem for Arakelov positivity on the level-143 object. -/
+theorem arakelov_positivity_X0_143 :
+    RiemannArakelovPositivity.ArakelovPositivity
+      (RiemannArakelovPositivity.X₀ 143) :=
+  RiemannArakelovPositivity.arakelov_positivity_X0_143
 
-theorem publish (chain : PublicationChain)
-    (h₁ : chain.arakelovPositivity.statement)
-    (h₂ : chain.zeroBridge.statement) : RH.RiemannHypothesis :=
-  chain.terminal h₁ h₂
+/-- Route A's source terminal theorem, adapted to the canonical RH predicate. -/
+theorem routeA_rh : RH.RiemannHypothesis :=
+  RH.fromMathlib
+    RiemannArakelovPositivity.RH_from_arakelov_positivity_unconditional
 
 end RH.RouteA
