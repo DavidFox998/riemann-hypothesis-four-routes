@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import re
 import shutil
 import subprocess
@@ -47,6 +48,7 @@ def main() -> None:
     upstream.mkdir(exist_ok=True)
     rows: list[list[str]] = []
     source_rows: list[list[str]] = []
+    file_rows: list[list[str]] = []
     for label, repository in SOURCES.items():
         source = SOURCE_ROOT / repository
         if not source.is_dir():
@@ -54,6 +56,12 @@ def main() -> None:
         rev = revision(source)
         copy_snapshot(source, upstream / label)
         source_rows.append([label, repository, rev])
+        for source_file in sorted(source.rglob("*")):
+            if not source_file.is_file() or ".git" in source_file.parts or ".lake" in source_file.parts:
+                continue
+            relative = source_file.relative_to(source)
+            digest = hashlib.sha256(source_file.read_bytes()).hexdigest()
+            file_rows.append([label, repository, rev, str(relative), digest])
         for lean_file in sorted(source.rglob("*.lean")):
             if ".lake" in lean_file.parts:
                 continue
@@ -87,6 +95,10 @@ def main() -> None:
             ["package", "repository", "revision", "path", "line", "kind", "declaration"]
         )
         writer.writerows(rows)
+    with (provenance / "files.csv").open("w", newline="") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(["package", "repository", "revision", "path", "sha256"])
+        writer.writerows(file_rows)
     print(f"copied {len(SOURCES)} source snapshots; indexed {len(rows)} declarations")
 
 
