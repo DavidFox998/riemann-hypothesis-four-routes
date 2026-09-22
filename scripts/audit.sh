@@ -37,3 +37,4 @@ lake build RHTests
 
 echo "structural audit passed"
 # Temporary CODEOWNER review test 35696087850.
+# Temporary post-approval gate change; prior approval must become stale.
