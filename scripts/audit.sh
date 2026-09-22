@@ -36,3 +36,4 @@ fi
 lake build RHTests
 
 echo "structural audit passed"
+# Temporary CODEOWNER review test 35696087850.
