@@ -1,0 +1,5 @@
+# Keep the publication gate and its ownership rule under explicit owner review.
+/.github/CODEOWNERS @DavidFox998
+/.github/workflows/lean.yml @DavidFox998
+/scripts/audit.sh @DavidFox998
+/scripts/verify_snapshots.py @DavidFox998
