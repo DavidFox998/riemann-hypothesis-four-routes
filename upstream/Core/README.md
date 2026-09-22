@@ -113,3 +113,5 @@ David J. Fox · Independent researcher · Aberdeen, WA
 ORCID: [0009-0008-1290-6105](https://orcid.org/0009-0008-1290-6105) · Opera Numerorum — 2026
 
 ```
+
+<!-- Branch-protection parity test: intentional snapshot change. -->

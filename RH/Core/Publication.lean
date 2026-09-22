@@ -32,3 +32,5 @@ structure PublicationStep where
   statement : Prop
 
 end RH
+
+-- Branch-protection test only: sorry (must be rejected by scripts/audit.sh)
