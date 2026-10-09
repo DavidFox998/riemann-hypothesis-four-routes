@@ -28,8 +28,23 @@ if rg -n 'def RiemannHypothesis' RH --glob '*.lean' |
   exit 1
 fi
 
-if rg -n '\bsorry\b|\badmit\b' RH --glob '*.lean'; then
-  echo "active publication tree contains unresolved scaffolding" >&2
+# Whole-tree scaffolding checks (previously RH/ only): sorry/admit, explicit
+# axiom declarations, and native_decide across RH/, upstream/, Tests/, etc.
+# Quarantine/ is the designated holding area for known-bad artifacts removed
+# from the active tree; it is documented in QUARANTINE.md and excluded here.
+if rg -n '\bsorry\b|\badmit\b' --glob '*.lean' --glob '!Quarantine/**' . ; then
+  echo "repo tree contains unresolved sorry/admit scaffolding" >&2
+  exit 1
+fi
+
+if rg -n '^\s*axiom\s' --glob '*.lean' --glob '!Quarantine/**' . ; then
+  echo "repo tree contains explicit axiom declarations" >&2
+  exit 1
+fi
+
+if rg -n '\bnative_decide\b' --glob '*.lean' --glob '!Quarantine/**' . \
+    | grep -vE ':[0-9]+:\s*--' ; then
+  echo "repo tree contains native_decide" >&2
   exit 1
 fi
 

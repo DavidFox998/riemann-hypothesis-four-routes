@@ -1,7 +1,7 @@
 # Riemann Hypothesis: Four Routes
 
 This repository is the publication workspace for RH Core, the P5 bridge, and
-four independent formal routes. It preserves the six source repositories at
+four formal routes. It preserves the six source repositories at
 exact revisions while giving active publication code one toolchain, one RH
 predicate, searchable provenance, and explicit route boundaries.
 
@@ -21,7 +21,7 @@ mathematically open or false.
 
 - `RH/Core/` — canonical RH statement and publication metadata.
 - `RH/P5/` — shared P5 boundary.
-- `RH/RouteA/` through `RH/RouteD/` — independent publication interfaces.
+- `RH/RouteA/` through `RH/RouteD/` — publication interfaces.
 - `upstream/` — immutable snapshots of all six source repositories.
 - `provenance/` — generated source and declaration indexes.
 - `docs/` — publication order, migration policy, and route guides.

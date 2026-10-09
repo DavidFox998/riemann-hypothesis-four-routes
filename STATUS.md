@@ -4,8 +4,8 @@
 |---|---:|---:|---:|---:|
 | RH Core | yes | yes | canonical predicate | unchanged |
 | P5 bridge | yes | yes | M5 certificate + RH equivalence | unchanged |
-| Route A | yes | yes | Arakelov source terminal | private |
-| Route B | yes | yes | finite certificate + Langlands descent | private |
+| Route A | yes | yes | Arakelov source terminal — QUARANTINED 2026-10-09 (see QUARANTINE.md) | private |
+| Route B | yes | yes | finite certificate — QUARANTINED 2026-10-09 (see QUARANTINE.md); Langlands descent wrapper retained | private |
 | Route C | yes | yes | growth/repulsion theorem | private |
 | Route D | yes | yes | eta + self-symmetry + terminal composition | private |
 
@@ -15,3 +15,5 @@ only after the snapshot and active-root checks passed.
 
 The active route roots are checked by `Tests/RouteRoots.lean`. Their current
 Lean trust dependencies are recorded in `docs/trust-report.md`.
+
+Artifacts removed from the active tree are logged in `QUARANTINE.md`.
