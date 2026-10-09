@@ -11,14 +11,12 @@ require mathlib from git
 lean_lib RHCore where
   roots := #[`RH.Core]
 
-lean_lib RouteASource where
-  srcDir := "upstream/RouteA/lean"
-  roots := #[`RiemannArakelovPositivity]
-  leanOptions := #[⟨`maxRecDepth, .ofNat 100000⟩]
+-- RouteASource removed 2026-10-09: its only root (RiemannArakelovPositivity)
+-- was quarantined (see QUARANTINE.md); Route A has no honest Lean source left.
 
 lean_lib RouteBSource where
   srcDir := "upstream/RouteB/lean"
-  roots := #[`RHKimSarnakDescent, `Langlands.Descent]
+  roots := #[`Langlands.Descent]
 
 lean_lib RouteCSource where
   srcDir := "upstream/RouteC/lean"
