@@ -42,11 +42,8 @@ lean_lib P5Source where
 lean_lib RHP5 where
   roots := #[`RH.P5]
 
-lean_lib RHRouteA where
-  roots := #[`RH.RouteA]
-
-lean_lib RHRouteB where
-  roots := #[`RH.RouteB]
+-- 2026-10-09 roadmap phase1: RHRouteA / RHRouteB wrappers quarantined
+-- (their source files proved deceptive RH-claim artifacts; see QUARANTINE.md).
 
 lean_lib RHRouteC where
   roots := #[`RH.RouteC]
@@ -54,9 +51,7 @@ lean_lib RHRouteC where
 lean_lib RHRouteD where
   roots := #[`RH.RouteD]
 
-lean_lib RHTests where
-  roots := #[`Tests.RouteRoots]
-
-@[default_target]
-lean_lib RHFourRoutes where
-  roots := #[`RH.FourRoutes]
+-- 2026-10-09 roadmap phase1: RHTests quarantined (it #checked the
+-- quarantined wrappers' theorems, including a closed RH term built on the
+-- sorried Route A bridge); RHFourRoutes aggregator quarantined
+-- (it imported the quarantined Route A/B wrappers).

@@ -15,16 +15,19 @@ whole-tree checks.
 | 2026-10-09 | `upstream/RouteC/lean/Littlewood/UniformToDensity.lean` | Literal `sorry` under "CLOSED FINAL" marketing: the upstream Littlewood README calls this file "FINAL 1pp CLOSED FINAL" while `uniform_to_density` ends `have hvol ...; sorry`. |
 | 2026-10-09 | `upstream/RouteC/lean/RouteC/RouteC_Unconditional_S4.lean` | False unconditional close: `RouteC_Unconditional_Close : Clay_RH` proved by `sorry`, backed by `axiom ramanujan : True` / `axiom no_CM : True`; its local `Clay_RH := ∀ ρ, riemannZeta ρ = 0 → ρ.re = 1/2` does not exclude trivial zeros, so as stated it is false. The honest conditional `routeC_rh` in `RH/RouteC/Main.lean` is untouched. |
 
-## Known live importers (reported, not edited)
+| 2026-10-09 | `RH/RouteA/Main.lean` | Wrapper of quarantined content: both theorems (`arakelov_positivity_X0_143`, `routeA_rh`) are direct adaptations of `RiemannArakelovPositivity.*` (quarantined above); `routeA_rh` builds a closed RH term on the sorried bridge. No independent substance. |
+| 2026-10-09 | `RH/RouteA.lean` | Pure re-export shim: `import RH.RouteA.Main` (quarantined above). |
+| 2026-10-09 | `RH/RouteB/Main.lean` | Mixed wrapper: `finite_certificate` proves the quarantined `RHKimSarnakDescent_v6` namesake (deceptive RH-claim artifact); `routeB_rh` is an honest conditional but inseparable without editing proof content. Preserved here and in git history; the underlying honest combinator remains in retained `Langlands.Descent`. |
+| 2026-10-09 | `RH/RouteB.lean` | Pure re-export shim: `import RH.RouteB.Main` (quarantined above). |
+| 2026-10-09 | `RH/FourRoutes.lean` | Aggregator wrapper importing the quarantined `RH.RouteA` / `RH.RouteB` shims. |
+| 2026-10-09 | `Tests/RouteRoots.lean` | Test wrapper: `#check`ed the quarantined wrappers' theorems and contained `example : RH.RiemannHypothesis := RH.RouteA.routeA_rh` — a closed RH term built on the sorried Route A bridge. |
 
-The following wrapper files import quarantined modules and have their own
-substantive content, so they were left in place for the coordinator's
-decision. The build closure currently references modules that no longer
-exist:
+## Resolved: former live importers (2026-10-09, coordinator)
 
-- `RH/RouteA/Main.lean` — imports `RiemannArakelovPositivity`; `routeA_rh` adapts the quarantined `RH_from_arakelov_positivity_unconditional` via `RH.fromMathlib`.
-- `RH/RouteB/Main.lean` — imports `RHKimSarnakDescent`; `finite_certificate` uses the quarantined `RHKimSarnakDescent_v6` namesake theorems, and `routeB_rh` uses `Langlands.Descent` (retained).
-
-Consequences: `lake build RHRouteA` / `lake build RHRouteB` / `lake build RHTests`
-fail until these wrappers are triaged; `Tests/RouteRoots.lean` `#check`s
-`RH.RouteA.routeA_rh`, `RH.RouteB.finite_certificate`, and `RH.RouteB.routeB_rh`.
+The wrapper files listed in the previous revision's "Known live importers"
+section (`RH/RouteA/Main.lean`, `RH/RouteB/Main.lean`) have now been quarantined
+per the task's wrapper rule (a wrapper importing quarantined modules is
+quarantined too; no replacement content invented). The lakefile's `RHRouteA`,
+`RHRouteB`, `RHTests`, and `RHFourRoutes` lib blocks were removed. Remaining
+build libs: `RHCore`, `RouteBSource` (`Langlands.Descent`), `RouteCSource`,
+`RouteDSource`, `P5Source`, `RHP5`, `RHRouteC`, `RHRouteD`.
